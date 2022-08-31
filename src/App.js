@@ -2,6 +2,7 @@ import React, {Fragment, useState} from "react";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Products from "./components/Productos";
+import Card from "./components/Card";
 
 function App() {
 
@@ -13,6 +14,9 @@ function App() {
     {id:4, name:"carlitos5"},
   ]);
 
+  //card state
+  const [card, addProducts] = useState([]);
+
   //get year
   const year = new Date().getFullYear()
 
@@ -20,7 +24,6 @@ function App() {
     <Fragment>
 
       <Header 
-
         title="from the Header component xd dynamic"
       />
 
@@ -29,11 +32,18 @@ function App() {
         <Products 
           key={p.id}
           products={p}
+          productos = {productos}
+          card = {card}
+          addProducts = {addProducts}
         />
       ))}
 
-      <Footer 
+      <Card 
+        card={card}
+        addProducts = {addProducts}
+      />
 
+      <Footer 
         year={year}
       />
 
